@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
 
-<body>
+<body style="min-height: 100vh;">
     <header>
         <div style="background-color: #82D671;top: 0;">
             <div class="row" style="width: 100%;">
@@ -31,26 +31,63 @@
             <div class="row" style="width: 100%;text-align: center;">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-2" style="margin-top: 5px;margin-bottom: 5px;">
-                    <a href="" style="text-decoration: none;"><h5>About</h5></a>
+                    <a href="{% url 'about' %}" style="text-decoration: none;">
+                        <h5>About</h5>
+                    </a>
                 </div>
                 <div class="col-sm-2" style="margin-top: 5px;">
-                    <a href=""  style="text-decoration: none;"><h5>Servives</h5></a>
+                    <a href="" style="text-decoration: none;">
+                        <h5>Servives</h5>
+                    </a>
                 </div>
                 <div class="col-sm-2" style="margin-top: 5px;">
-                    <a href=""  style="text-decoration: none;"><h5>Contact</h5></a>
+                    <a href="" style="text-decoration: none;">
+                        <h5>Contact</h5>
+                    </a>
                 </div>
                 <div class="col-sm-2" style="margin-top: 5px;">
-                    <a href=""  style="text-decoration: none;"><h5>Booking</h5></a>
+                    <a href="" style="text-decoration: none;">
+                        <h5>Booking</h5>
+                    </a>
                 </div>
                 <div class="col-sm-2" style="margin-top: 5px;">
-                    <a href=""  style="text-decoration: none;"><h5>Tracking</h5></a>
+                    <a href="" style="text-decoration: none;">
+                        <h5>Tracking</h5>
+                    </a>
                 </div>
             </div>
             <hr style="color: blue;">
         </div>
     </header>
     <section style="background-color: #82D671 ;">{% block content %}{% endblock content %}</section>
-    <footer></footer>
+    <footer style="margin-top: auto;">
+        <div class="row" style="width: 100%;">
+            <div class="col-sm-4 col-lg-5"></div>
+            <div class="col-sm-7 col-lg-5" style="margin-top: 20px;margin-left: 12px;">
+                <a href="{% url 'home' %}">
+                    <img src="{% static '/images/icon.png' %}" style="height: 100px;margin-top: -10px;" alt="logo">
+                </a>
+            </div>
+        </div>
+        <div class="row" style="width: 100%;margin-bottom: 20px;">
+            <div class="col-sm-4 col-lg-5"></div>
+            <div class="col-sm-5 col-lg-3">
+                <h5 style="text-align: center;color: rgb(11, 109, 170);">THALIPARAMBU BUILDING
+                    VENNALA P O, KOCHI - 682028 <br>
+                    MOB : 7025149160, 9656874969</h5>
+            </div>
+        </div>
+        <div  style="background-color:  #b4efa9;">
+            <div class="row" style="width: 100%;">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <p style="text-align: center; padding-top:20px;padding-bottom: 5px;">Copyright © 2023. | Powered by <a
+                        href="" style="text-decoration: none;color: black;">Muhammed
+                        Suhail</a></p>
+                </div>
+            </div>
+        </div>  
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
