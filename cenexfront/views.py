@@ -5,3 +5,5 @@ def about(request):
     return render(request,'cenexfront/about.html')
 def service(request):
     return render(request,'cenexfront/service.html')
+def contact(request):
+    return render(request,'cenexfront/contact.html')
