@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+from .models import UserInfo
 def home(request):
     return render(request,'cenexfront/home.html')
 def about(request):
@@ -10,6 +13,20 @@ def contact(request):
 def booking(request):
     return render(request,'cenexfront/booking.html')
 def signuppage(request):
+    if request.method == 'POST':
+        company_name=request.POST.get('comname')
+        mobile_no=request.POST.get('phone')
+        address=request.POST.get('address')
+        pincode=request.POST.get('pincode')
+        password=request.POST.get('password')
+        myuser=User.objects.create_user(username=company_name,password=password)
+        myuser.save()
+        userinfo=UserInfo.objects.create(company_name=company_name,mobile_no=mobile_no,address=address,pincode=pincode)
+        userinfo.save()
+        return redirect('login')
     return render(request,'cenexfront/signup.html')
 def loginpage(request):
     return render(request,'cenexfront/login.html')
+def logoutpage(request):
+    logout(request)
+    return redirect('signup')
