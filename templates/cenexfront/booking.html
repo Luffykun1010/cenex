@@ -1,0 +1,25 @@
+{% extends "common.html" %}
+{% load static %}
+{% block title %}Cenex : Booking{% endblock title %}
+{% block content %}
+<div class="row" style="width: 100%;margin-top: -17px;">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8" style="margin-top: 50px;">
+        <h2
+            style="color: white;text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            Make Your Booking on Central Express Cargo </h2>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<div class="row" style="width: 100%;">
+    <div class="col-sm-4 col-lg-5"></div>
+    <div class="col-lg-2 col-sm-4">
+        <p style="text-align: center;">
+            <a href="{% url 'home' %}" style="text-decoration: none;">Home /</a>
+            <a href="{% url 'booking' %}"
+                style="margin-left: 10px;text-decoration: none;color: rgb(62, 56, 56);">Booking :</a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}
