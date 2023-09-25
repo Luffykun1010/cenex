@@ -32,8 +32,10 @@
             {% endfor %}
             <p style="text-align: center;">
                 <button type="submit"
-                    style=" margin-top: 40px;font-weight: 500; background-color: yellow;border-style: hidden;height: 50px;width: 200px;margin-bottom: 20px;">Login</button>
+                    style=" margin-top: 40px;font-weight: 500; background-color: yellow;border-style: hidden;height: 50px;width: 200px;">Login</button>
             </p>
+            <p style="margin-top: 2px; font-size: medium;text-align: center;margin-bottom: 20px;">New user? <a
+                href="{% url 'signup' %}">Signup</a></p>
         </div>
     </form>
     {% endif %}
