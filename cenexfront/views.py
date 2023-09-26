@@ -16,9 +16,10 @@ def booking(request):
         dict_cons={
             'UserInfo':UserInfo.objects.all()
         }
+        
     else:
         return redirect('login')
-    return render(request,'cenexfront/booking.html')
+    return render(request,'cenexfront/booking.html',dict_cons)
 def signuppage(request):
     if request.method == 'POST':
         company_name=request.POST.get('comname')
