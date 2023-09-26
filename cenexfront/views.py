@@ -12,6 +12,10 @@ def service(request):
 def contact(request):
     return render(request,'cenexfront/contact.html')
 def booking(request):
+    if request.user.is_authenticated:
+        user=request.user 
+    else:
+        return redirect('login')
     return render(request,'cenexfront/booking.html')
 def signuppage(request):
     if request.method == 'POST':
@@ -33,7 +37,7 @@ def loginpage(request):
         user = authenticate(username=username,password=password)
         if user is not None:    
             login(request,user)
-            return redirect('home')
+            return redirect('booking')
         else:
             messages.error(request,"Invalid credentials")
             return redirect('login')
