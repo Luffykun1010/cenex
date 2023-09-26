@@ -13,7 +13,9 @@ def contact(request):
     return render(request,'cenexfront/contact.html')
 def booking(request):
     if request.user.is_authenticated:
-        user=request.user 
+        dict_cons={
+            'UserInfo':UserInfo.objects.all()
+        }
     else:
         return redirect('login')
     return render(request,'cenexfront/booking.html')
