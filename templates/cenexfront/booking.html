@@ -2,184 +2,252 @@
 {% load static %}
 {% block title %}Cenex : Booking{% endblock title %}
 {% block content %}
-<div class="row" style="width: 100%;margin-top: -17px;">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8" style="margin-top: 50px;">
-        <h2
-            style="color: white;text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-            Make Your Booking on Central Express Cargo</h2>
+<div class="container">
+    <div class="row" style="width: 100%;margin-top: 10px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 col-12" style="margin-top: 30px;">
+            <h2
+                style="color: white;text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                Make Your Booking on Central Express Cargo</h2>
+        </div>
+        <div class="col-sm-2"></div>
     </div>
-    <div class="col-sm-2"></div>
-</div>
-<div class="row" style="width: 100%;">
-    <div class="col-sm-4 col-lg-5"></div>
-    <div class="col-lg-2 col-sm-4">
-        <p style="text-align: center;">
-            <a href="{% url 'home' %}" style="text-decoration: none;">Home /</a>
-            <a href="{% url 'booking' %}"
-                style="margin-left: 10px;text-decoration: none;color: rgb(62, 56, 56);">Booking :</a>
-        </p>
+    <div class="row" style="width: 100%;">
+        <div class="col-md-5"></div>
+        <div class="col-md-2 col-12">
+            <p style="text-align: center;">
+                <a href="{% url 'home' %}" style="text-decoration: none;">Home /</a>
+                <a href="{% url 'booking' %}"
+                    style="margin-left: 10px;text-decoration: none;color: rgb(62, 56, 56);">Booking :</a>
+            </p>
+        </div>
     </div>
-</div>
-<div class="row" style="width: 100%;">
-    <div class="col-sm-3 col-lg-4"></div>
-    <div class="col-lg-4 col-sm-6">
-        <h2
-            style="color: white;text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 30px;">
-            Consignor : {{user.get_username}}
-    </div>
-</div>
-<div class="row" style="width: 100%;">
-    <div class="col-sm-3 col-lg-4"></div>
-    <div class="col-lg-4 col-sm-6">
-        <p style="color: white;text-align: center;">Change Consignor ? <a href="{% url 'logout' %}"> Change</a></p>
-    </div>
-</div>
-<div class="row" style="width: 100%;">
-    <div class="col-lg-1"></div>
-    <div class="col-sm-12 col-lg-5">
-        <div style="border: 2px solid white;border-radius: 15px;margin-top: 30px;margin-left: 10px;">
-            <div class="row" style="width: 100%;">
-                <div class="col-sm-1"></div>
-                <div class="col-lg-5 col-sm-4">
-                    <h2
-                        style="color: white;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 20px;">
-                        Consignee : </h2>
+    <div class="row" style="width: 100%;">
+        <div class="col-md-1"></div>
+        <div class="col-12 col-md-5">
+            <div class="container" style="border: 2px solid white;border-radius: 15px;margin-top: 30px;">
+                <div class="row" style="width: 100%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-11 col-12">
+                        <h2
+                            style="color: white;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 20px;">
+                            Consignor : </h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row" style="width: 100%;">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-11">
-                    {% for d in UserInfo %}
-                    <form action="" method="POST"
-                        style="margin-top: 25px;margin-bottom: 20px;margin-left: 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                        {% csrf_token %}
-                        <div class="row" style="width: 100%;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Consignee Name </label>
+                <div class="row" style="width: 100%;">
+                    <div class="col-12">
+                        <form action="" method="POST"
+                            style="margin-top: 15px;margin-bottom: 20px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                            {% csrf_token %}
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 5px;font-weight: 500; ">Consignor Name
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="text" style="height: 40px;width:100%; " id="comname" name="comname"
+                                        placeholder="Enter Consignee Name" required>
+                                </div>
                             </div>
-                            <div class="col-sm-8">:
-                                <input type="text" style="height: 40px;width:95%; " id="comname" name="comname" placeholder="Enter Consignee Name" required>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Mobile Number
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="tel" style="height: 40px;width: 100%; "
+                                        pattern="[0-9]{3}[0-9]{4}[0-9]{3}" id="phone" name="phone"
+                                        placeholder="Enter Consignee Mobile number" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Mobile Number</label>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Address :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="text" style="width: 100%; height: 40px;" id="address" name="address"
+                                        placeholder="Enter Consignee Address" required>
+                                </div>
                             </div>
-                            <div class="col-sm-8">:
-                                <input type="tel" style="height: 40px;width: 95%; " pattern="[0-9]{3}[0-9]{4}[0-9]{3}"
-                                    id="phone" name="phone" placeholder="Enter Consignee Mobile number" required>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Pincode :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="tel" style="height: 40px;width: 100%; " id="pincode" name="pincode"
+                                        placeholder="Enter Consignee Pin Code(6 digits)" pattern="[0-9]{3}[0-9]{3}"
+                                        required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Address</label>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; " required>City
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="text" id="city" name="city"
+                                        style="height: 40px;width: 100%;margin-bottom: 20px;"
+                                        placeholder="Enter Consignee City" required>
+                                </div>
                             </div>
-                            <div class="col-sm-8">:
-                                <input type="text" style="width: 95%; height: 40px;" id="address" name="address"
-                                    placeholder="Enter Consignee Address" required>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Pincode</label>
-                            </div>
-                            <div class="col-sm-8">:
-                                <input type="tel" style="height: 40px;width: 95%; " id="pincode" name="pincode"
-                                    placeholder="Enter Consignee Pin Code(6 digits)" pattern="[0-9]{3}[0-9]{3}"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; " required>City</label>
-                            </div>
-                            <div class="col-sm-8">:
-                                <input type="text" id="city" name="city"
-                                    style="height: 40px;width: 95%;margin-bottom: 20px;"
-                                    placeholder="Enter Consignee City" required>
-                            </div>
-                        </div>
-                    </form>
-                    {% endfor %}
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-5 col-sm-12">
-        <div
-            style="border: 2px solid white;border-radius: 15px;margin-top: 30px;margin-left: 10px;margin-bottom: 70px;">
-            <div class="row" style="width: 100%;">
-                <div class="col-sm-1"></div>
-                <div class="col-lg-5 col-sm-4">
-                    <h2
-                        style="color: white;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 20px;">
-                        Box Details : </h2>
+    <div class="row" style="width: 100%;">
+        <div class="col-md-1"></div>
+        <div class="col-12 col-md-5">
+            <div class="container" style="border: 2px solid white;border-radius: 15px;margin-top: 30px;">
+                <div class="row" style="width: 100%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-11 col-12">
+                        <h2
+                            style="color: white;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 20px;">
+                            Consignee : </h2>
+                    </div>
+                </div>
+                <div class="row" style="width: 100%;">
+                    <div class="col-12">
+                        <form action="" method="POST"
+                            style="margin-top: 15px;margin-bottom: 20px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                            {% csrf_token %}
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 5px;font-weight: 500; ">Consignee Name
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="text" style="height: 40px;width:100%; " id="comname" name="comname"
+                                        placeholder="Enter Consignee Name" required>
+                                </div>
+                            </div>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Mobile Number
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="tel" style="height: 40px;width: 100%; "
+                                        pattern="[0-9]{3}[0-9]{4}[0-9]{3}" id="phone" name="phone"
+                                        placeholder="Enter Consignee Mobile number" required>
+                                </div>
+                            </div>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Address :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="text" style="width: 100%; height: 40px;" id="address" name="address"
+                                        placeholder="Enter Consignee Address" required>
+                                </div>
+                            </div>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Pincode :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="tel" style="height: 40px;width: 100%; " id="pincode" name="pincode"
+                                        placeholder="Enter Consignee Pin Code(6 digits)" pattern="[0-9]{3}[0-9]{3}"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; " required>City
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="text" id="city" name="city"
+                                        style="height: 40px;width: 100%;margin-bottom: 20px;"
+                                        placeholder="Enter Consignee City" required>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="row" style="width: 100%;">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-11">
-                    <form action="" method="POST"
-                        style="margin-top: 25px;margin-bottom: 20px;margin-left: 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                        {% csrf_token %}
-                        <div class="row" style="width: 100%;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Number Of Boxes</label>
+        </div>
+        <div class="col-md-5 col-12">
+            <div class="container"
+                style="border: 2px solid white;border-radius: 15px;margin-top: 30px;margin-bottom: 70px;">
+                <div class="row" style="width: 100%;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 col-12">
+                        <h2
+                            style="color: white;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 20px;">
+                            Box Details : </h2>
+                    </div>
+                </div>
+                <div class="row" style="width: 100%;">
+                    <div class="col-lg-1"></div>
+                    <div class="col-12 col-lg-5">
+                        <form action="" method="POST"
+                            style="margin-top: 25px;margin-bottom: 20px;margin-left: 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                            {% csrf_token %}
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 5px;font-weight: 500; ">Number Of Boxes
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="number" style="height: 40px;width:100%; " min="1" id="boxno"
+                                        name="boxno" placeholder="Enter Number of Boxes" required>
+                                </div>
                             </div>
-                            <div class="col-sm-8">:
-                                <input type="number" style="height: 40px;width:95%; " min="1" id="boxno" name="boxno"
-                                    placeholder="Enter Number of Boxes" required>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Payment Mode
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <select type="text" style="height: 40px;width: 100%; " id="payment" name="payment"
+                                        placeholder="Enter Payment Method" required>
+                                        <option value="">Enter Payment Mode</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Payment Mode</label>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Invoice Number
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="number" style="width: 100%; height: 40px;" min="1" id="invoice"
+                                        name="invoice" placeholder="Enter Invoice Number" required>
+                                </div>
                             </div>
-                            <div class="col-sm-8">:
-                                <select type="text" style="height: 40px;width: 95%; " id="payment" name="payment"
-                                    placeholder="Enter Payment Method" required>
-                                    <option value="">Enter Payment Mode</option>
-                                </select>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; ">Packing Type
+                                        :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <select type="text" style="height: 40px;width: 100%; " id="packing" name="packing"
+                                        required>
+                                        <option value="">Enter Packing Type</option>
+                                        <option value="Carton Box">Carton Box</option>
+                                        <option value="Wooden Box">Wooden Box</option>
+                                        <option value="Bundle">Bundle</option>
+                                        <option value="Packet">Packet</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Invoice Number</label>
+                            <div class="row" style="width: 100%;">
+                                <div class="col-md-4 col-12">
+                                    <label for="" style="margin-top: 15px;font-weight: 500; " required>Special
+                                        Instructions (if any...) :</label>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <input type="text" id="instructions" name="instructions"
+                                        style="height: 40px;width: 100%;margin-bottom: 20px;"
+                                        placeholder="Enter Special Instructions">
+                                </div>
                             </div>
-                            <div class="col-sm-8">:
-                                <input type="number" style="width: 95%; height: 40px;" min="1" id="invoice" name="invoice"
-                                    placeholder="Enter Invoice Number" required>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; ">Packing Type</label>
-                            </div>
-                            <div class="col-sm-8">:
-                                <select type="text" style="height: 40px;width: 95%; " id="packing" name="packing"
-                                    required>
-                                    <option value="">Enter Packing Type</option>
-                                    <option value="Carton Box">Carton Box</option>
-                                    <option value="Wooden Box">Wooden Box</option>
-                                    <option value="Bundle">Bundle</option>
-                                    <option value="Packet">Packet</option>
-                                    <option value="Others">Others</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin-top: 20px;">
-                            <div class="col-sm-4">
-                                <label for="" style="margin-top: 5px;font-weight: 500; " required>Special Instructions
-                                    (if any...)</label>
-                            </div>
-                            <div class="col-sm-8">:
-                                <input type="text" id="instructions" name="instructions"
-                                    style="height: 40px;width: 95%;margin-bottom: 20px;"
-                                    placeholder="Enter Special Instructions">
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,42 +2,45 @@
 {% load static %}
 {% block title %}Cenex : Login{% endblock title %}
 {% block content %}
-<div class="col-lg-3 col-sm-1"></div>
-<div class="col-lg-6 col-sm-10"
-    style="margin-top: 100px;border-style:dashed;border-color:rgb(111, 111, 200);border-radius: 15px;margin-bottom: 100px;background-color: white;">
-    {% if user.is_authenticated %}
-    <h3 style="text-align: center; margin-top: 60px;">Already logged in!!</h3>
-    <p style="margin-top: 40px; font-size: medium;text-align: center;">Back to <a href="{% url 'home' %}"> Home Page</a>
-    </p>
-    <p style="margin-top: -15px; font-size: medium;text-align: center;margin-bottom: 50px;">Logout? <a
-            href="{% url 'logout' %}">Logout</a>
-    </p>
-    {% else %}
-    <form action="login" method="POST"
-        style="margin-top: 25px;margin-bottom: 20px;margin-left: 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
-        {% csrf_token %}
-        <h4>Login to your account</h4>
-        <div class="d-flex" style="margin-top: 10px;flex-direction: column;margin-right: 10px;">
-            <label for="" style="margin-top: 25px;font-weight: 500; ">Company Name</label>
-            <input type="text" style="margin-top: 8px;height: 40px; " id="comname" name="comname"
-                placeholder="Enter your Company Name" required>
-            <label for="" style="margin-top: 25px;font-weight: 500;" required>Enter Password </label>
-            <input type="password" id="password" name="password" minlength="6" style="margin-top: 8px;height: 40px; "
-                maxlength="10" placeholder="Enter Password " required>
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible  fade show"
-                style="margin-bottom: -45px;margin-top: -13px;margin-left: -15px;">
-                <p style="font-size: small;color: red;"><b>Alert:</b> {{message}}</p>
+<div class="row" style="width: 100%;">
+    <div class="col-md-3 col-1"></div>
+    <div class="col-md-6 col-11"
+        style="margin-top: 100px;border-style:dashed;border-color:rgb(111, 111, 200);border-radius: 15px;margin-bottom: 100px;background-color: white;">
+        {% if user.is_authenticated %}
+        <h3 style="text-align: center; margin-top: 60px;">Already logged in!!</h3>
+        <p style="margin-top: 40px; font-size: medium;text-align: center;">Back to <a href="{% url 'home' %}"> Home
+                Page</a>
+        </p>
+        <p style="margin-top: -15px; font-size: medium;text-align: center;margin-bottom: 50px;">Logout? <a
+                href="{% url 'logout' %}">Logout</a>
+        </p>
+        {% else %}
+        <form action="login" method="POST"
+            style="margin-top: 25px;margin-bottom: 20px;margin-left: 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            {% csrf_token %}
+            <h4>Login to your account</h4>
+            <div class="d-flex" style="margin-top: 10px;flex-direction: column;margin-right: 10px;">
+                <label for="" style="margin-top: 25px;font-weight: 500; ">Company Name</label>
+                <input type="text" style="margin-top: 8px;height: 40px; " id="comname" name="comname"
+                    placeholder="Enter your Company Name" required>
+                <label for="" style="margin-top: 25px;font-weight: 500;" required>Enter Password </label>
+                <input type="password" id="password" name="password" minlength="6"
+                    style="margin-top: 8px;height: 40px; " maxlength="10" placeholder="Enter Password " required>
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible  fade show"
+                    style="margin-bottom: -45px;margin-top: -13px;margin-left: -15px;">
+                    <p style="font-size: small;color: red;"><b>Alert:</b> {{message}}</p>
+                </div>
+                {% endfor %}
+                <p style="text-align: center;">
+                    <button type="submit"
+                        style=" margin-top: 40px;font-weight: 500; background-color: yellow;border-style: hidden;height: 50px;width: 200px;">Login</button>
+                </p>
+                <p style="margin-top: 2px; font-size: medium;text-align: center;margin-bottom: 20px;">New user? <a
+                        href="{% url 'signup' %}">Signup</a></p>
             </div>
-            {% endfor %}
-            <p style="text-align: center;">
-                <button type="submit"
-                    style=" margin-top: 40px;font-weight: 500; background-color: yellow;border-style: hidden;height: 50px;width: 200px;">Login</button>
-            </p>
-            <p style="margin-top: 2px; font-size: medium;text-align: center;margin-bottom: 20px;">New user? <a
-                href="{% url 'signup' %}">Signup</a></p>
-        </div>
-    </form>
-    {% endif %}
+        </form>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
